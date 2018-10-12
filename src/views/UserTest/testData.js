@@ -17,8 +17,7 @@ export default {
 						id: '3',
 						title: 'Какой-то язык...'
 					}
-				],
-				rightAnswerId: 1
+				]
 			},
 			{
 				id: 2,
@@ -36,8 +35,7 @@ export default {
 						id: '3',
 						title: 'Лучший язык в мире'
 					}
-				],
-				rightAnswerId: 1
+				]
 			},
 			{
 				id: 3,
@@ -55,8 +53,7 @@ export default {
 						id: '3',
 						title: 'Лучший язык в мире'
 					}
-				],
-				rightAnswerId: 1
+				]
 			}
 		]
 	}
