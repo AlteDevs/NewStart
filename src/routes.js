@@ -46,7 +46,7 @@ const routes = [
 	{
 		path: '/user-test/:testId',
 		exact: true,
-		name: 'User Test',
+		name: 'Тесты пользователя',
 		component: UserTest
 	}
 ];
