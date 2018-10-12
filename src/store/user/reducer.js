@@ -1,4 +1,4 @@
-import { FETCH_PENDING, FETCH_SUCCEEDED, FETCH_FAILED } from './actions';
+import { GET_USER } from './actions';
 
 const initialState = {
 	pending: false,
@@ -8,13 +8,13 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case FETCH_PENDING:
+		case GET_USER + '_PENDING':
 			return {
 				...state,
 				pending: true
 			};
 
-		case FETCH_SUCCEEDED:
+		case GET_USER + '_FULFILLED':
 			return {
 				...state,
 				pending: false,
@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
 				error: null
 			};
 
-		case FETCH_FAILED:
+		case GET_USER + '_REJECTED':
 			return {
 				...state,
 				pending: false,
