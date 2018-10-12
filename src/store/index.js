@@ -8,7 +8,9 @@ import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createLogger } from 'redux-logger';
 
+
 import user from './user';
+import userTest from './userTest';
 
 const createStore = initialState => {
 	const reduxDevTool =
@@ -22,7 +24,8 @@ const createStore = initialState => {
 	);
 
 	const reducer = combineReducers({
-		user
+		user,
+		userTest
 	});
 
 	return reduxCreateStore(reducer, initialState, middleware);
