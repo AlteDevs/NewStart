@@ -29,21 +29,15 @@ class DefaultHeader extends Component {
         <AppSidebarToggler className="d-md-down-none" display="lg" />
 
         <Nav className="d-md-down-none" navbar>
-          <RouterLink to="/">
 						<NavItem className="px-3">
-							<NavLink>Рабочая панель</NavLink>
+							<RouterLink to="/">Рабочая панель</RouterLink>
 						</NavItem>
-          </RouterLink>
-					<RouterLink to="/jobs">
 						<NavItem className="px-3">
-							<NavLink>Вакансии</NavLink>
+							<RouterLink to="/jobs">Вакансии</RouterLink>
 						</NavItem>
-					</RouterLink>
-          <RouterLink to="/settings">
 						<NavItem className="px-3">
-							<NavLink>Настройки</NavLink>
+							<RouterLink to="/settings">Настройки</RouterLink>
 						</NavItem>
-          </RouterLink>
         </Nav>
         <Nav className="ml-auto" navbar>
           <NavItem className="d-md-down-none">

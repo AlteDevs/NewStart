@@ -1,1 +1,1 @@
-export const getUser = (state) = state.user.data
+export const getUser = state => state.user.data;
