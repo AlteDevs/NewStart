@@ -1,7 +1,12 @@
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux'
 import thunk from 'redux-thunk'
 
+<<<<<<< Updated upstream
 import user from './user'
+=======
+import user from './user';
+import userTest from './userTest';
+>>>>>>> Stashed changes
 
 const createStore = (initialState) => {
 	const reduxDevTool =
@@ -18,7 +23,12 @@ const createStore = (initialState) => {
 
 	const reducer = combineReducers({
 		user,
+<<<<<<< Updated upstream
 	})
+=======
+		userTest
+	});
+>>>>>>> Stashed changes
 
 	return reduxCreateStore(reducer, initialState, middleware)
 }
