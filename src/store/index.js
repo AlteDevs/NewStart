@@ -9,6 +9,7 @@ import promiseMiddleware from 'redux-promise-middleware';
 import { createLogger } from 'redux-logger';
 
 
+import auth from './auth';
 import user from './user';
 import userTest from './userTest';
 
@@ -24,8 +25,9 @@ const createStore = initialState => {
 	);
 
 	const reducer = combineReducers({
-		user,
-		userTest
+		auth,
+    userTest,
+		user
 	});
 
 	return reduxCreateStore(reducer, initialState, middleware);
