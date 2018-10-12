@@ -1,6 +1,6 @@
-import { GET_USER } from './actions';
+import { FETCH_USER } from './actions';
 
 export const fetchUser = () => ({
-	type: GET_USER,
+	type: FETCH_USER,
 	payload: fetch('/api/user')
 });

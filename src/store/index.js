@@ -7,6 +7,7 @@ import {
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware'
 
+import auth from './auth';
 import user from './user';
 
 const createStore = initialState => {
@@ -22,6 +23,7 @@ const createStore = initialState => {
 	));
 
 	const reducer = combineReducers({
+		auth,
 		user
 	});
 
