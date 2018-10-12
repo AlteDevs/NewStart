@@ -37,8 +37,10 @@
     "final-form": "^4.10.0",
     "prettier": "^1.14.3",
     "react-final-form": "^3.6.7",
+    "react-redux": "^5.0.7",
     "react-scripts": "^2.0.4",
     "redux": "^4.0.0",
+    "redux-actions": "^2.6.1",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0"
   },
