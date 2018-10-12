@@ -5,21 +5,12 @@ import { Container } from 'reactstrap';
 import {
   AppAside,
   AppBreadcrumb,
-  AppFooter,
   AppHeader,
   AppSidebar,
-  AppSidebarFooter,
-  AppSidebarForm,
-  AppSidebarHeader,
-  AppSidebarMinimizer,
-  AppSidebarNav,
 } from '@coreui/react';
-// sidebar nav config
-import navigation from '../../_nav';
-// routes config
+import { NavLink as RouterLink } from 'react-router-dom';
 import routes from '../../routes';
 import DefaultAside from './DefaultAside';
-import DefaultFooter from './DefaultFooter';
 import DefaultHeader from './DefaultHeader';
 
 class DefaultLayout extends Component {
@@ -31,11 +22,24 @@ class DefaultLayout extends Component {
         </AppHeader>
         <div className="app-body">
           <AppSidebar fixed display="lg">
-            <AppSidebarHeader />
-            <AppSidebarForm />
-            <AppSidebarNav navConfig={navigation} {...this.props} />
-            <AppSidebarFooter />
-            <AppSidebarMinimizer />
+						<div className="sidebar">
+							<nav className="sidebar-nav">
+								<ul className="nav">
+									<li className="nav-item">
+										<RouterLink to="/user/analytics">
+											<a className="nav-link">
+												<i className="nav-icon cui-speedometer" /> Статистика обучения
+											</a>
+										</RouterLink>
+										<RouterLink to="/user/lessons">
+											<a className="nav-link">
+												<i className="nav-icon cui-pencil" /> Уроки
+											</a>
+										</RouterLink>
+									</li>
+								</ul>
+							</nav>
+						</div>
           </AppSidebar>
           <main className="main">
             <AppBreadcrumb appRoutes={routes}/>
@@ -56,9 +60,6 @@ class DefaultLayout extends Component {
             <DefaultAside />
           </AppAside>
         </div>
-        <AppFooter>
-          <DefaultFooter />
-        </AppFooter>
       </div>
     );
   }
