@@ -7,7 +7,7 @@ export default {
 		},
 		{
 			name: 'Курсы',
-			url: '/',
+			url: '/courses',
 			icon: 'icon-pencil'
 		},
 		{

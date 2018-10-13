@@ -4,3 +4,22 @@
 		margin-bottom: 15px;
 	}
 }
+
+.course-status {
+	font-weight: bold;
+	font-size: 16px;
+	text-align: right;
+	text-transform: uppercase;
+
+	&.online {
+		color: $green;
+	}
+
+	&.offline {
+		color: $red;
+	}
+}
+
+.course-image {
+	border-bottom: 1px solid $secondary;
+}
