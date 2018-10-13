@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { MemoryRouter, Route, Switch } from 'react-router';
+import { Alert } from 'reactstrap';
 import UserTestItem from './UserTestItem';
 import testData from './testData.js';
 
@@ -20,10 +21,29 @@ class UserTest extends Component {
 							path={index === 0 ? '/' : `/question${item.id}`}
 							exact
 							key={index}
-							component={props => <UserTestItem {...props} question={item} />}
+							component={props => (
+								<UserTestItem
+									{...props}
+									question={item}
+									questionsCount={questions.length}
+									questionIndex={index + 1}
+								/>
+							)}
 						/>
 					))}
-					<Route path="*" component={() => <div>Данный тест не найден</div>} />
+					<Route
+						path="*"
+						component={() => (
+							<Alert color="success">
+								<h4 className="alert-heading">Отлично!</h4>
+								<p>Вы без каких-либо проблеб прошли данный тест !</p>
+								<hr />
+								<p className="mb-0">
+									Продолжайте в том же духе и у вас все получится !
+								</p>
+							</Alert>
+						)}
+					/>
 				</Switch>
 			</MemoryRouter>
 		);

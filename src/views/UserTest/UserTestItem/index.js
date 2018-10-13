@@ -8,7 +8,8 @@ import {
 	FormGroup,
 	Label,
 	Input,
-	Button
+	Button,
+	Form
 } from 'reactstrap';
 import { setAnswer } from 'store/userTest';
 
@@ -21,16 +22,30 @@ class UserTestItem extends Component {
 	}
 
 	render() {
-		let { question, setAnswer } = this.props;
+		let { question, questionsCount, questionIndex, setAnswer } = this.props;
 		return (
-			<div>
+			<Form
+				onSubmit={e => {
+					e.preventDefault();
+					setAnswer(this.state.answer);
+					this.props.history.push(
+						`/question${parseInt(this.props.question.id) + 1}`
+					);
+				}}
+			>
 				<Card>
 					<CardHeader>Вопрос №{question.id}</CardHeader>
 					<CardBody>
-						<h5>{question.title}</h5>
+						<h5
+							style={{
+								marginBottom: 20
+							}}
+						>
+							{question.title}
+						</h5>
 						{question.variants.map((item, index) => (
-							<FormGroup check className="radio" key={index}>
-								<Label check className="form-check-label">
+							<FormGroup check className="radio answer-form-group" key={index}>
+								<Label className="form-check-label">
 									<Input
 										className="form-check-input"
 										type="radio"
@@ -43,6 +58,7 @@ class UserTestItem extends Component {
 												}
 											})
 										}
+										required={true}
 									/>
 									{item.title}
 								</Label>
@@ -50,19 +66,19 @@ class UserTestItem extends Component {
 						))}
 					</CardBody>
 				</Card>
-				<Button
-					color="success"
-					onClick={() => {
-						console.log(this.state.answer);
-						setAnswer(this.state.answer);
-						this.props.history.push(
-							`/question${parseInt(this.props.question.id) + 1}`
-						);
-					}}
-				>
-					Следующий вопрос
-				</Button>
-			</div>
+				<div className="d-flex align-items-center">
+					<span
+						style={{
+							marginRight: 15
+						}}
+					>
+						{questionIndex} / {questionsCount}
+					</span>
+					<Button color="success" type="submit">
+						Следующий вопрос
+					</Button>
+				</div>
+			</Form>
 		);
 	}
 }
