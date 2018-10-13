@@ -35,28 +35,13 @@ class Users extends Component {
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col xl={6}>
+          <Col xl={12}>
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Users <small className="text-muted">example</small>
               </CardHeader>
               <CardBody>
-                <Table responsive hover>
-                  <thead>
-                    <tr>
-                      <th scope="col">id</th>
-                      <th scope="col">name</th>
-                      <th scope="col">registered</th>
-                      <th scope="col">role</th>
-                      <th scope="col">status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {userList.map((user, index) =>
-                      <UserRow key={index} user={user}/>
-                    )}
-                  </tbody>
-                </Table>
+                
               </CardBody>
             </Card>
           </Col>

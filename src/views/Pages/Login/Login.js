@@ -7,35 +7,25 @@ class Login extends Component {
       <div className="app flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
-            <Col md="8">
+            <Col md="12">
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
                     <Form>
-                      <h1>Login</h1>
-                      <p className="text-muted">Sign In to your account</p>
+                      <h1>Авторизация</h1>
+                      <p className="text-muted">Войдите в ваш аккаунт</p>
                       <InputGroup className="mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-user"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
+                        <Input type="text" placeholder="E-mail" autoComplete="test@example.com" />
                       </InputGroup>
                       <InputGroup className="mb-4">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-lock"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
+                        <Input type="password" placeholder="Пароль" autoComplete="Текущий пароль" />
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4">Login</Button>
+                          <Button color="primary" className="px-4">Авторизация</Button>
                         </Col>
                         <Col xs="6" className="text-right">
-                          <Button color="link" className="px-0">Forgot password?</Button>
+                          <Button color="link" className="px-0">Забыли пароль ?</Button>
                         </Col>
                       </Row>
                     </Form>
@@ -44,10 +34,9 @@ class Login extends Component {
                 <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: 44 + '%' }}>
                   <CardBody className="text-center">
                     <div>
-                      <h2>Sign up</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                      <Button color="primary" className="mt-3" active>Register Now!</Button>
+                      <h2>Регистрация</h2>
+                      <p>В случае если у вас нет аккаунта, вы можете зарегестрировать его на платформе.</p>
+                      <Button onClick={() => this.props.history.push('/signup')} color="primary" className="mt-3" active>Зарегистрироваться сейчас !</Button>
                     </div>
                   </CardBody>
                 </Card>

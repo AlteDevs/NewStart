@@ -13,11 +13,11 @@ class App extends Component {
 			<Provider store={ store }>
 				<HashRouter>
 					<Switch>
-						<Route exact path="/login" name="Login Page" component={Login} />
+						<Route exact path="/login" name="Экран авторизации" component={Login} />
 						<Route
 							exact
-							path="/register"
-							name="Register Page"
+							path="/signup"
+							name="Экран Регистрации"
 							component={Register}
 						/>
 						<Route exact path="/404" name="Page 404" component={Page404} />
