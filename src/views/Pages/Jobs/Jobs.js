@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-import usersData from './UsersData'
+import jobsData from './JobsData'
 
 function UserRow(props) {
   const user = props.user
@@ -26,24 +26,17 @@ function UserRow(props) {
   )
 }
 
-class Users extends Component {
+class Jobs extends Component {
 
   render() {
 
-    const userList = usersData.filter((user) => user.id < 10)
+    const userList = jobsData.filter((user) => user.id < 10)
 
     return (
       <div className="animated fadeIn">
         <Row>
           <Col xl={12}>
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i> Users <small className="text-muted">example</small>
-              </CardHeader>
-              <CardBody>
-                
-              </CardBody>
-            </Card>
+            <h1>Вакансии</h1>
           </Col>
         </Row>
       </div>
@@ -51,4 +44,4 @@ class Users extends Component {
   }
 }
 
-export default Users;
+export default Jobs;

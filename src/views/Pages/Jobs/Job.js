@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-import usersData from './UsersData'
+import jobsData from './JobsData'
 
-class User extends Component {
+class Job extends Component {
 
   render() {
 
-    const user = usersData.find( user => user.id.toString() === this.props.match.params.id)
+    const user = jobsData.find(user => user.id.toString() === this.props.match.params.id)
 
     const userDetails = user ? Object.entries(user) : [['id', (<span><i className="text-muted icon-ban"></i> Not found</span>)]]
 
@@ -43,4 +43,4 @@ class User extends Component {
   }
 }
 
-export default User;
+export default Job;

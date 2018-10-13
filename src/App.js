@@ -10,10 +10,15 @@ import { Login, Page404, Page500, Register } from './views/Pages';
 class App extends Component {
 	render() {
 		return (
-			<Provider store={ store }>
+			<Provider store={store}>
 				<HashRouter>
 					<Switch>
-						<Route exact path="/login" name="Экран авторизации" component={Login} />
+						<Route
+							exact
+							path="/login"
+							name="Экран авторизации"
+							component={Login}
+						/>
 						<Route
 							exact
 							path="/signup"

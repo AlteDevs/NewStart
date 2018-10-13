@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { MemoryRouter, Route, Switch } from 'react-router';
 import { Alert } from 'reactstrap';
-import UserTestItem from './UserTestItem';
+import UserTestItem from './UserTestItem/index';
 import testData from './testData.js';
 
 class UserTest extends Component {
