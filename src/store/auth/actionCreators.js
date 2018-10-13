@@ -11,10 +11,13 @@ export const signIn = values => ({
 		},
 		body: JSON.stringify(values)
 	})
-		.then(res => res.json())
-		.catch(e => {
-			console.log('error', e)
-			throw new Error(e);
+		.then(async res => {
+			const response = await res.json()
+			if(response.status === 'Error' || response.status === 401) {
+				throw response
+			}
+
+			return response
 		})
 });
 
@@ -28,9 +31,13 @@ export const signUp = values => ({
 		},
 		body: JSON.stringify(values)
 	})
-		.then(res => res.json())
-		.catch(e => {
-			throw new Error(e);
+		.then(async res => {
+			const response = await res.json()
+			if(response.status === 'Error' || response.status === 401) {
+				throw response
+			}
+
+			return response
 		})
 });
 
