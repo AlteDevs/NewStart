@@ -1,47 +1,36 @@
 import React, { Component } from 'react';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
+import JobCard from '../../JobCard';
 
-import jobsData from './JobsData'
-
-function UserRow(props) {
-  const user = props.user
-  const userLink = `#/users/${user.id}`
-
-  const getBadge = (status) => {
-    return status === 'Active' ? 'success' :
-      status === 'Inactive' ? 'secondary' :
-        status === 'Pending' ? 'warning' :
-          status === 'Banned' ? 'danger' :
-            'primary'
-  }
-
-  return (
-    <tr key={user.id.toString()}>
-        <th scope="row"><a href={userLink}>{user.id}</a></th>
-        <td><a href={userLink}>{user.name}</a></td>
-        <td>{user.registered}</td>
-        <td>{user.role}</td>
-        <td><Badge href={userLink} color={getBadge(user.status)}>{user.status}</Badge></td>
-    </tr>
-  )
-}
+import jobsData from './JobsData';
 
 class Jobs extends Component {
+	render() {
+		const userList = jobsData.filter(user => user.id < 10);
 
-  render() {
-
-    const userList = jobsData.filter((user) => user.id < 10)
-
-    return (
-      <div className="animated fadeIn">
-        <Row>
-          <Col xl={12}>
-            <h1>Вакансии</h1>
-          </Col>
-        </Row>
-      </div>
-    )
-  }
+		return (
+			<div className="animated fadeIn">
+				<Row>
+					<Col xl={12}>
+						<h1>Вакансии</h1>
+						{jobsData.map(item => (
+							<JobCard
+								key={item.id}
+								imgPath={ item.imgPath }
+								title={item.title}
+								publicDate={item.publicDate}
+								competence={item.competence}
+								skills={item.skills}
+								description={item.description}
+								priceFrom={item.priceFrom}
+								priceTo={item.priceTo}
+							/>
+						))}
+					</Col>
+				</Row>
+			</div>
+		);
+	}
 }
 
 export default Jobs;

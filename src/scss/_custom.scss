@@ -5,6 +5,88 @@
 	}
 }
 
+ul, li {
+	padding: 0;
+	margin: 0;
+}
+
+.job-card {
+	width: 100%;
+	height: 250px;
+	display: flex;
+	background-color: #fff;
+	cursor: pointer;
+	transition: 0.32s;
+	overflow: hidden;
+	border-radius: 3px;
+	margin-bottom: 40px;
+
+	&:hover {
+		-webkit-box-shadow: -2px 14px 52px -16px rgba(0,0,0,0.75);
+		-moz-box-shadow: -2px 14px 52px -16px rgba(0,0,0,0.75);
+		box-shadow: -2px 14px 52px -16px rgba(0,0,0,0.75);
+	}
+
+	&__img {
+		width: 200px;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__body {
+		padding: 10px 20px;
+		width: 100%;
+		position: relative;
+
+		&__title {
+			margin-bottom: 0;
+		}
+
+		&__label {
+			font-size: 18px;
+		}
+
+		&__price {
+			font-size: 18px;
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+
+			.price-meta, .price-el {
+				margin-right: 10px;
+			}
+		}
+
+		&__descr {
+			margin-top: 10px;
+		}
+
+		&__tags {
+			display: flex;
+		}
+
+		&__skill {
+			font-size: 21px;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.tags-list {
+	list-style-type: none;
+	display: flex;
+	margin-left: 10px;
+
+	&__item {
+		margin-right: 10px;
+	}
+}
+
 .course-status {
 	font-weight: bold;
 	font-size: 16px;
