@@ -42,6 +42,16 @@ const AddCourse = Loadable({
 	loading: Loading
 });
 
+const CoursesDetail = Loadable({
+	loader: () => import('./views/Pages/Courses/Detail'),
+	loading: Loading
+});
+
+const UserProfile = Loadable({
+	loader: () => import('./views/Pages/UserProfile'),
+	loading: Loading
+});
+
 const routes = [
 	{ path: '/', exact: true, name: 'Главная', component: DefaultLayout },
 	{ path: '/dashboard', name: 'Рабочая панель', component: Dashboard },
@@ -70,6 +80,18 @@ const routes = [
 		exact: true,
 		name: 'Создание курса',
 		component: AddCourse
+	},
+	{
+		path: '/courses/:courseId',
+		exact: true,
+		name: 'Курс', //Сделать динамическое название курсов в breadcrumbs
+		component: CoursesDetail
+	},
+	{
+		path: '/user-profile',
+		exact: true,
+		name: 'Профиль пользователя', //Сделать динамическое название курсов в breadcrumbs
+		component: UserProfile
 	}
 ];
 

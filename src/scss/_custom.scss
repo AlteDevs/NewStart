@@ -5,9 +5,18 @@
 	}
 }
 
-ul, li {
+ul,
+li {
 	padding: 0;
 	margin: 0;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h1 {
+	margin-bottom: 30px;
 }
 
 .job-card {
@@ -22,9 +31,9 @@ ul, li {
 	margin-bottom: 40px;
 
 	&:hover {
-		-webkit-box-shadow: -2px 14px 52px -16px rgba(0,0,0,0.75);
-		-moz-box-shadow: -2px 14px 52px -16px rgba(0,0,0,0.75);
-		box-shadow: -2px 14px 52px -16px rgba(0,0,0,0.75);
+		-webkit-box-shadow: -2px 14px 52px -16px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: -2px 14px 52px -16px rgba(0, 0, 0, 0.75);
+		box-shadow: -2px 14px 52px -16px rgba(0, 0, 0, 0.75);
 	}
 
 	&__img {
@@ -57,7 +66,8 @@ ul, li {
 			right: 0;
 			bottom: 20px;
 
-			.price-meta, .price-el {
+			.price-meta,
+			.price-el {
 				margin-right: 10px;
 			}
 		}
@@ -104,4 +114,8 @@ ul, li {
 
 .course-image {
 	border-bottom: 1px solid $secondary;
+}
+
+.add-course-button {
+	margin-left: 20px;
 }
