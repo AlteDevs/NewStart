@@ -37,6 +37,11 @@ const Courses = Loadable({
 	loading: Loading
 });
 
+const AddCourse = Loadable({
+	loader: () => import('./views/Pages/AddCourse'),
+	loading: Loading
+});
+
 const routes = [
 	{ path: '/', exact: true, name: 'Главная', component: DefaultLayout },
 	{ path: '/dashboard', name: 'Рабочая панель', component: Dashboard },
@@ -59,6 +64,12 @@ const routes = [
 		exact: true,
 		name: 'Курсы',
 		component: Courses
+	},
+	{
+		path: '/courses/create',
+		exact: true,
+		name: 'Создание курса',
+		component: AddCourse
 	}
 ];
 

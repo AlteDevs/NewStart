@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 import {
 	Card,
 	CardImg,
@@ -15,6 +16,7 @@ class Courses extends Component {
 	render() {
 		return (
 			<Container>
+				<h1>Курсы</h1>
 				<Row>
 					<Col xs="4">
 						<Card>
@@ -277,6 +279,12 @@ class Courses extends Component {
 						</Card>
 					</Col>
 				</Row>
+				<Button
+					onClick={() => this.props.history.push('/courses/create')}
+					color="success"
+					block>
+					Создать курс
+				</Button>
 			</Container>
 		);
 	}

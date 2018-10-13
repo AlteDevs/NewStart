@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Col, Row } from 'reactstrap';
 import JobCard from '../../JobCard';
 
@@ -6,7 +7,7 @@ import jobsData from './JobsData';
 
 class Jobs extends Component {
 	render() {
-		const userList = jobsData.filter(user => user.id < 10);
+		const { history } = this.props
 
 		return (
 			<div className="animated fadeIn">
@@ -24,6 +25,7 @@ class Jobs extends Component {
 								description={item.description}
 								priceFrom={item.priceFrom}
 								priceTo={item.priceTo}
+								onClick={ () => history.push(`jobs/${ item.id }`) }
 							/>
 						))}
 					</Col>
@@ -33,4 +35,4 @@ class Jobs extends Component {
 	}
 }
 
-export default Jobs;
+export default withRouter(Jobs);
