@@ -79,10 +79,15 @@ class DefaultHeader extends Component {
 							/>
 						</DropdownToggle>
 						<DropdownMenu right style={{ right: 'auto' }}>
-							<DropdownItem header tag="div" className="text-center">
+							{/* <DropdownItem header tag="div" className="text-center">
 								<strong>Профиль</strong>
-							</DropdownItem>
-							<DropdownItem>
+							</DropdownItem> */}
+							<RouterLink to="/user-profile">
+								<DropdownItem>
+									<i className="fa fa-user" /> Профиль
+								</DropdownItem>
+							</RouterLink>
+							{/* <DropdownItem>
 								<i className="fa fa-bell-o" /> Уведомления
 								<Badge color="info">42</Badge>
 							</DropdownItem>
@@ -97,13 +102,10 @@ class DefaultHeader extends Component {
 							<DropdownItem>
 								<i className="fa fa-usd" /> Платежи
 								<Badge color="secondary">42</Badge>
-							</DropdownItem>
+							</DropdownItem> */}
 							<DropdownItem divider />
 							<DropdownItem onClick={() => history.push('/login')}>
-								<i
-									className="fa fa-lock"
-								/>{' '}
-								Выйти
+								<i className="fa fa-lock" /> Выйти
 							</DropdownItem>
 						</DropdownMenu>
 					</AppHeaderDropdown>

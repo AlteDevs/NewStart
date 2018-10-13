@@ -41,8 +41,14 @@ const AddCourse = Loadable({
 	loader: () => import('./views/Pages/AddCourse'),
 	loading: Loading
 });
+
 const CoursesDetail = Loadable({
 	loader: () => import('./views/Pages/Courses/Detail'),
+	loading: Loading
+});
+
+const UserProfile = Loadable({
+	loader: () => import('./views/Pages/UserProfile'),
 	loading: Loading
 });
 
@@ -80,6 +86,12 @@ const routes = [
 		exact: true,
 		name: 'Курс', //Сделать динамическое название курсов в breadcrumbs
 		component: CoursesDetail
+	},
+	{
+		path: '/user-profile',
+		exact: true,
+		name: 'Профиль пользователя', //Сделать динамическое название курсов в breadcrumbs
+		component: UserProfile
 	}
 ];
 
