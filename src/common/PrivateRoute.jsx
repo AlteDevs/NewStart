@@ -1,5 +1,5 @@
 import React from 'react';
-import RedirectFilter from 'common/RedirectFilter';
+import RedirectFilter from './RedirectFilter';
 import { RoleConsumer } from './RoleProvider';
 
 const PrivateRoute = props => (
@@ -7,7 +7,7 @@ const PrivateRoute = props => (
 		{userData => (
 			<RedirectFilter
 				routeProps={props}
-				redirect="/login"
+				redirect="/login"w
 				condition={userData.isAuth}
 			/>
 		)}
