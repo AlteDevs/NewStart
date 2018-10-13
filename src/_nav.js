@@ -14,11 +14,6 @@ export default {
 			name: 'Статистика',
 			url: '/',
 			icon: 'icon-graph'
-		},
-		{
-			name: 'Вакансии',
-			url: '/',
-			icon: 'icon-layers'
 		}
 	]
 };

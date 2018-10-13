@@ -1,5 +1,5 @@
 import React from 'react';
-import RedirectFilter from 'common/RedirectFilter';
+import RedirectFilter from './RedirectFilter';
 import PropTypes from 'prop-types';
 import { RoleConsumer } from './RoleProvider';
 

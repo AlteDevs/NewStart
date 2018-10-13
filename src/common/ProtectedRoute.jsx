@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { moduleName } from '../../ducks/auth';
 
 @withRouter
 class ProtectedRoute extends Component {
@@ -26,7 +25,7 @@ class ProtectedRoute extends Component {
 
 export default connect(
 	state => ({
-		authorized: !!state[moduleName].user
+		authorized: !!state.user.data
 	}),
 	null,
 	null,

@@ -44,7 +44,6 @@ class DefaultHeader extends Component {
 					}}
 				/>
 				<AppSidebarToggler className="d-md-down-none" display="lg" />
-
 				<Nav className="d-md-down-none" navbar>
 					<NavItem className="px-3">
 						<RouterLink to="/">Рабочая панель</RouterLink>
@@ -60,9 +59,9 @@ class DefaultHeader extends Component {
 					<NavItem className="d-md-down-none">
 						<NavLink href="#">
 							<i className="icon-bell" />
-							<Badge pill color="danger">
-								5
-							</Badge>
+							{/*<Badge pill color="danger">*/}
+								{/*5*/}
+							{/*</Badge>*/}
 						</NavLink>
 					</NavItem>
 					<NavItem className="d-md-down-none">
@@ -89,21 +88,19 @@ class DefaultHeader extends Component {
 							</RouterLink>
 							{/* <DropdownItem>
 								<i className="fa fa-bell-o" /> Уведомления
-								<Badge color="info">42</Badge>
+								<Badge color="info">4</Badge>
 							</DropdownItem>
 							<DropdownItem>
 								<i className="fa fa-envelope-o" /> Сообщения
-								<Badge color="success">42</Badge>
+								<Badge color="success">1</Badge>
 							</DropdownItem>
 							<DropdownItem>
 								<i className="fa fa-tasks" /> Ваши отклики
-								<Badge color="danger">42</Badge>
+								<Badge color="danger">2</Badge>
 							</DropdownItem>
 							<DropdownItem>
 								<i className="fa fa-usd" /> Платежи
-								<Badge color="secondary">42</Badge>
-							</DropdownItem> */}
-							<DropdownItem divider />
+								{/*<Badge color="secondary"></Badge>*/} 
 							<DropdownItem onClick={() => history.push('/login')}>
 								<i className="fa fa-lock" /> Выйти
 							</DropdownItem>
