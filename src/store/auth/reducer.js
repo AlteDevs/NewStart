@@ -33,7 +33,7 @@ export default (state, action) => {
 
 		case SIGN_UP + '_REJECTED':
 		case SIGN_IN + '_REJECTED': {
-			cookies.set('TOKEN', null);
+			cookies.remove('TOKEN');
 			return {
 				...state,
 				pending: false,

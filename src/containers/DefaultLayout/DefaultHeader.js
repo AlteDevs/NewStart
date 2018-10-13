@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink as RouterLink, withRouter } from 'react-router-dom';
+import cookies from 'utils/cookies';
 import {
 	Badge,
 	DropdownItem,
@@ -60,7 +61,7 @@ class DefaultHeader extends Component {
 						<NavLink href="#">
 							<i className="icon-bell" />
 							{/*<Badge pill color="danger">*/}
-								{/*5*/}
+							{/*5*/}
 							{/*</Badge>*/}
 						</NavLink>
 					</NavItem>
@@ -100,8 +101,13 @@ class DefaultHeader extends Component {
 							</DropdownItem>
 							<DropdownItem>
 								<i className="fa fa-usd" /> Платежи
-								{/*<Badge color="secondary"></Badge>*/} 
-							<DropdownItem onClick={() => history.push('/login')}>
+								{/*<Badge color="secondary"></Badge>*/}
+							<DropdownItem
+								onClick={() => {
+									cookies.remove('TOKEN');
+									window.location.reload();
+								}}
+							>
 								<i className="fa fa-lock" /> Выйти
 							</DropdownItem>
 						</DropdownMenu>
