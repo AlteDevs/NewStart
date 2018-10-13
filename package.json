@@ -31,14 +31,19 @@
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.5.2",
     "reactstrap": "^6.5.0",
+    "redux-logger": "^3.0.6",
     "simple-line-icons": "^2.4.1"
   },
   "devDependencies": {
+    "final-form": "^4.10.0",
     "prettier": "^1.14.3",
+    "react-final-form": "^3.6.7",
+    "react-redux": "^5.0.7",
     "react-scripts": "^2.0.4",
     "redux": "^4.0.0",
     "redux-promise-middleware": "^5.1.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "universal-cookie": "^3.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
