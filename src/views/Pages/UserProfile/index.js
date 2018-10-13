@@ -14,7 +14,7 @@ import {
 class UserProfile extends Component {
 	render() {
 		return (
-			<Fragment>
+			<div className="animated fadeIn">
 				<h1>Профиль пользователя</h1>
 				<Card>
 					<CardHeader>Редактирование профиля</CardHeader>
@@ -64,7 +64,7 @@ class UserProfile extends Component {
 						</Form>
 					</CardBody>
 				</Card>
-			</Fragment>
+			</div>
 		);
 	}
 }

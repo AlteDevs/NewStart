@@ -9,21 +9,19 @@ import {
 	Form,
 	Input,
 	InputGroup,
-	Row,
+	Row
 } from 'reactstrap';
 
 class AddCourse extends Component {
-	onSubmit = (values) => {
-		console.log(values)
-	}
+	onSubmit = values => {
+		console.log(values);
+	};
 
-	formValidate = () => {
-
-	}
+	formValidate = () => {};
 
 	render() {
 		return (
-			<div className="app flex-row align-items-center">
+			<div className="app flex-row align-items-center animated fadeIn">
 				<Container>
 					<Row className="justify-content-center">
 						<Col md="8">
@@ -32,11 +30,9 @@ class AddCourse extends Component {
 									<Form>
 										<h1>Создание курса</h1>
 										<FormProvider
-											onSubmit={ this.onSubmit }
+											onSubmit={this.onSubmit}
 											// validate={ this.formValidate }
-											render={({
-																 handleSubmit,
-															 }) => {
+											render={({ handleSubmit }) => {
 												return (
 													<Fragment>
 														<InputGroup className="mb-3">
@@ -119,11 +115,12 @@ class AddCourse extends Component {
 														<Button
 															onClick={handleSubmit}
 															color="success"
-															block>
+															block
+														>
 															Создать курс
 														</Button>
 													</Fragment>
-												)
+												);
 											}}
 										/>
 									</Form>
