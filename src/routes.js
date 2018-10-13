@@ -17,18 +17,18 @@ const Dashboard = Loadable({
 	loading: Loading
 });
 
-const Users = Loadable({
-	loader: () => import('./views/Users/Users'),
+const Jobs = Loadable({
+	loader: () => import('./views/Pages/Jobs/Jobs'),
 	loading: Loading
 });
 
-const User = Loadable({
-	loader: () => import('./views/Users/User'),
+const Job = Loadable({
+	loader: () => import('./views/Pages/Jobs/Job'),
 	loading: Loading
 });
 
 const UserTest = Loadable({
-	loader: () => import('./views/UserTest'),
+	loader: () => import('./views/Pages/UserTest'),
 	loading: Loading
 });
 
@@ -36,12 +36,12 @@ const routes = [
 	{ path: '/', exact: true, name: 'Главная', component: DefaultLayout },
 	{ path: '/dashboard', name: 'Рабочая панель', component: Dashboard },
 	{ path: '/charts', name: 'Статистика', component: Charts },
-	{ path: '/jobs', exact: true, name: 'Вакансии', component: Users },
+	{ path: '/jobs', exact: true, name: 'Вакансии', component: Jobs },
 	{
 		path: '/jobs/:id',
 		exact: true,
 		name: 'Детальная вакансии',
-		component: User
+		component: Job
 	},
 	{
 		path: '/user-test/:testId',
