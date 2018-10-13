@@ -12,33 +12,43 @@ import {
 	Container,
 	Row
 } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 class Courses extends Component {
 	render() {
 		return (
-			<Container>
-				<h1>Курсы</h1>
-				<Row>
+			<div className="animated fadeIn">
+				<h1 className="d-flex align-items-center">
+					Курсы
+					<NavLink to="/courses/create">
+						<Button color="success" className="add-course-button">
+							Создать курс
+						</Button>
+					</NavLink>
+				</h1>
+				<Row className="courses-body">
 					<Col xs="4">
 						<Card>
 							<CardImg
 								top
 								width="100%"
-								src="assets/img/courses/scala.png"
-								alt="Scala"
+								src="assets/img/courses/js.png"
+								alt="Card image cap"
 								className="course-image"
 							/>
 							<CardBody>
-								<CardTitle>Уроки Scala</CardTitle>
+								<CardTitle>Уроки Javascript</CardTitle>
 								<CardSubtitle>10-дневный курс</CardSubtitle>
 								<CardText>
-									В этом курсе вы научитесь программировать на Scala
+									В этом курсе вы научитесь программировать на Java
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
-										<div className="course-status offline">Оффлайн курс</div>
+										<div className="course-status online">Онлайн курс</div>
 									</Col>
 								</Row>
 							</CardBody>
@@ -61,7 +71,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status online">Онлайн курс</div>
@@ -87,7 +99,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status offline">Оффлайн курс</div>
@@ -113,7 +127,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status online">Онлайн курс</div>
@@ -139,7 +155,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status offline">Оффлайн курс</div>
@@ -165,7 +183,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status online">Онлайн курс</div>
@@ -191,7 +211,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status offline">Оффлайн курс</div>
@@ -217,7 +239,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status online">Онлайн курс</div>
@@ -243,7 +267,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status offline">Оффлайн курс</div>
@@ -269,7 +295,9 @@ class Courses extends Component {
 								</CardText>
 								<Row className="align-items-center justify-content-between">
 									<Col xs="6">
-										<Button color="primary">Просмотреть</Button>
+										<NavLink to="/courses/1">
+											<Button color="primary">Просмотреть</Button>
+										</NavLink>
 									</Col>
 									<Col xs="6">
 										<div className="course-status online">Онлайн курс</div>
@@ -279,13 +307,7 @@ class Courses extends Component {
 						</Card>
 					</Col>
 				</Row>
-				<Button
-					onClick={() => this.props.history.push('/courses/create')}
-					color="success"
-					block>
-					Создать курс
-				</Button>
-			</Container>
+			</div>
 		);
 	}
 }
