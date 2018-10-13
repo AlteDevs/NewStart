@@ -1,27 +1,38 @@
 import { SIGN_IN, SIGN_OUT, SIGN_UP } from './actions';
 import { apiUrl } from '../../constants/api';
 
-export const signIn = () => ({
+export const signIn = values => ({
 	type: SIGN_IN,
-	payload: fetch('/api/signIn')
+	payload: fetch(`${apiUrl}/auth_user`, {
+		method: 'POST',
+		headers: {
+			Accept: 'application/json, text/plain, */*',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(values)
+	})
+		.then(res => res.json())
+		.catch(e => {
+			console.log('error', e)
+			throw new Error(e);
+		})
 });
 
-export const signUp = values => {
-	console.log('values', values);
-	return {
-		type: SIGN_UP,
-		payload: fetch(`${apiUrl}/create_user`, {
-			method: 'POST',
-			credentials: 'same-origin',
-			headers: {
-				Accept: 'application/json, text/plain, */*',
-				// 'X-XSRF-TOKEN': token,
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(values)
+export const signUp = values => ({
+	type: SIGN_UP,
+	payload: fetch(`${apiUrl}/create_user`, {
+		method: 'POST',
+		headers: {
+			Accept: 'application/json, text/plain, */*',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(values)
+	})
+		.then(res => res.json())
+		.catch(e => {
+			throw new Error(e);
 		})
-	};
-};
+});
 
 export const signOut = () => ({
 	type: SIGN_IN,
