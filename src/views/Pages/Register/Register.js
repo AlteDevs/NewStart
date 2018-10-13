@@ -27,10 +27,31 @@ class Register extends Component {
 		activeTab: '1'
 	};
 
+	getRoleType = () => {
+		const { activeTab } = this.state;
+
+		switch (activeTab) {
+			case '1': {
+				return 0;
+			}
+			case '2': {
+				return 1;
+			}
+			case '3': {
+				return 2;
+			}
+			default:
+				return 0;
+		}
+	};
+
 	onSubmit = values => {
 		const { createUserAction } = this.props;
 
-		createUserAction(values);
+		createUserAction({
+			role: this.getRoleType(),
+			...values
+		});
 	};
 
 	toggle(tab) {
@@ -364,7 +385,7 @@ class Register extends Component {
 // })
 
 const mapDispatchToProps = dispatch => ({
-	createUserAction: bindActionCreators(dispatch, signUp)
+	createUserAction: bindActionCreators(signUp, dispatch)
 });
 
 export default connect(
