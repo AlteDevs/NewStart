@@ -6,6 +6,11 @@ export default {
 			icon: 'icon-screen-desktop'
 		},
 		{
+			name: 'Курсы',
+			url: '/',
+			icon: 'icon-pencil'
+		},
+		{
 			name: 'Статистика',
 			url: '/',
 			icon: 'icon-graph'
