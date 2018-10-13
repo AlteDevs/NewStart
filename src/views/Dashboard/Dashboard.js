@@ -481,7 +481,7 @@ class Dashboard extends Component {
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col xs="12" sm="6" lg="3">
+          <Col xs="12" sm="6" lg="6">
             <Card className="text-white bg-info">
               <CardBody className="pb-0">
                 <ButtonGroup className="float-right">
@@ -498,7 +498,7 @@ class Dashboard extends Component {
                   </ButtonDropdown>
                 </ButtonGroup>
                 <div className="text-value">9.823</div>
-                <div>Members online</div>
+                <div>Общее кол-во баллов</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
                 <Line data={cardChartData2} options={cardChartOpts2} height={70} />
@@ -506,7 +506,7 @@ class Dashboard extends Component {
             </Card>
           </Col>
 
-          <Col xs="12" sm="6" lg="3">
+          <Col xs="12" sm="6" lg="6">
             <Card className="text-white bg-primary">
               <CardBody className="pb-0">
                 <ButtonGroup className="float-right">
@@ -521,8 +521,8 @@ class Dashboard extends Component {
                     </DropdownMenu>
                   </Dropdown>
                 </ButtonGroup>
-                <div className="text-value">9.823</div>
-                <div>Members online</div>
+                <div className="text-value">2.823</div>
+                <div>Баллы за последнюю неделю</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
                 <Line data={cardChartData1} options={cardChartOpts1} height={70} />
@@ -530,53 +530,53 @@ class Dashboard extends Component {
             </Card>
           </Col>
 
-          <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-warning">
-              <CardBody className="pb-0">
-                <ButtonGroup className="float-right">
-                  <Dropdown id='card3' isOpen={this.state.card3} toggle={() => { this.setState({ card3: !this.state.card3 }); }}>
-                    <DropdownToggle caret className="p-0" color="transparent">
-                      <i className="icon-settings"></i>
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </ButtonGroup>
-                <div className="text-value">9.823</div>
-                <div>Members online</div>
-              </CardBody>
-              <div className="chart-wrapper" style={{ height: '70px' }}>
-                <Line data={cardChartData3} options={cardChartOpts3} height={70} />
-              </div>
-            </Card>
-          </Col>
+          {/*<Col xs="12" sm="6" lg="3">*/}
+            {/*<Card className="text-white bg-warning">*/}
+              {/*<CardBody className="pb-0">*/}
+                {/*<ButtonGroup className="float-right">*/}
+                  {/*<Dropdown id='card3' isOpen={this.state.card3} toggle={() => { this.setState({ card3: !this.state.card3 }); }}>*/}
+                    {/*<DropdownToggle caret className="p-0" color="transparent">*/}
+                      {/*<i className="icon-settings"></i>*/}
+                    {/*</DropdownToggle>*/}
+                    {/*<DropdownMenu right>*/}
+                      {/*<DropdownItem>Action</DropdownItem>*/}
+                      {/*<DropdownItem>Another action</DropdownItem>*/}
+                      {/*<DropdownItem>Something else here</DropdownItem>*/}
+                    {/*</DropdownMenu>*/}
+                  {/*</Dropdown>*/}
+                {/*</ButtonGroup>*/}
+                {/*<div className="text-value">2.823</div>*/}
+                {/*<div>Баллы </div>*/}
+              {/*</CardBody>*/}
+              {/*<div className="chart-wrapper" style={{ height: '70px' }}>*/}
+                {/*<Line data={cardChartData3} options={cardChartOpts3} height={70} />*/}
+              {/*</div>*/}
+            {/*</Card>*/}
+          {/*</Col>*/}
 
-          <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-danger">
-              <CardBody className="pb-0">
-                <ButtonGroup className="float-right">
-                  <ButtonDropdown id='card4' isOpen={this.state.card4} toggle={() => { this.setState({ card4: !this.state.card4 }); }}>
-                    <DropdownToggle caret className="p-0" color="transparent">
-                      <i className="icon-settings"></i>
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
-                    </DropdownMenu>
-                  </ButtonDropdown>
-                </ButtonGroup>
-                <div className="text-value">9.823</div>
-                <div>Members online</div>
-              </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-                <Bar data={cardChartData4} options={cardChartOpts4} height={70} />
-              </div>
-            </Card>
-          </Col>
+          {/*<Col xs="12" sm="6" lg="3">*/}
+            {/*<Card className="text-white bg-danger">*/}
+              {/*<CardBody className="pb-0">*/}
+                {/*<ButtonGroup className="float-right">*/}
+                  {/*<ButtonDropdown id='card4' isOpen={this.state.card4} toggle={() => { this.setState({ card4: !this.state.card4 }); }}>*/}
+                    {/*<DropdownToggle caret className="p-0" color="transparent">*/}
+                      {/*<i className="icon-settings"></i>*/}
+                    {/*</DropdownToggle>*/}
+                    {/*<DropdownMenu right>*/}
+                      {/*<DropdownItem>Action</DropdownItem>*/}
+                      {/*<DropdownItem>Another action</DropdownItem>*/}
+                      {/*<DropdownItem>Something else here</DropdownItem>*/}
+                    {/*</DropdownMenu>*/}
+                  {/*</ButtonDropdown>*/}
+                {/*</ButtonGroup>*/}
+                {/*<div className="text-value">9.823</div>*/}
+                {/*<div>Members online</div>*/}
+              {/*</CardBody>*/}
+              {/*<div className="chart-wrapper mx-3" style={{ height: '70px' }}>*/}
+                {/*<Bar data={cardChartData4} options={cardChartOpts4} height={70} />*/}
+              {/*</div>*/}
+            {/*</Card>*/}
+          {/*</Col>*/}
         </Row>
         <Row>
           <Col>
@@ -584,16 +584,16 @@ class Dashboard extends Component {
               <CardBody>
                 <Row>
                   <Col sm="5">
-                    <CardTitle className="mb-0">Traffic</CardTitle>
-                    <div className="small text-muted">November 2015</div>
+                    <CardTitle className="mb-0">Активность обучения</CardTitle>
+                    <div className="small text-muted">Октябрь 2018</div>
                   </Col>
                   <Col sm="7" className="d-none d-sm-inline-block">
                     <Button color="primary" className="float-right"><i className="icon-cloud-download"></i></Button>
                     <ButtonToolbar className="float-right" aria-label="Toolbar with button groups">
                       <ButtonGroup className="mr-3" aria-label="First group">
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Day</Button>
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Month</Button>
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Year</Button>
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Дни</Button>
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Месяц</Button>
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Год</Button>
                       </ButtonGroup>
                     </ButtonToolbar>
                   </Col>
@@ -602,117 +602,15 @@ class Dashboard extends Component {
                   <Line data={mainChart} options={mainChartOpts} height={300} />
                 </div>
               </CardBody>
-              <CardFooter>
-                <Row className="text-center">
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">Visits</div>
-                    <strong>29.703 Users (40%)</strong>
-                    <Progress className="progress-xs mt-2" color="success" value="40" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
-                    <div className="text-muted">Unique</div>
-                    <strong>24.093 Users (20%)</strong>
-                    <Progress className="progress-xs mt-2" color="info" value="20" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">Pageviews</div>
-                    <strong>78.706 Views (60%)</strong>
-                    <Progress className="progress-xs mt-2" color="warning" value="60" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">New Users</div>
-                    <strong>22.123 Users (80%)</strong>
-                    <Progress className="progress-xs mt-2" color="danger" value="80" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
-                    <div className="text-muted">Bounce Rate</div>
-                    <strong>Average Rate (40.15%)</strong>
-                    <Progress className="progress-xs mt-2" color="primary" value="40" />
-                  </Col>
-                </Row>
-              </CardFooter>
+
             </Card>
           </Col>
         </Row>
-
-        <Row>
-          <Col xs="6" sm="6" lg="3">
-            <Widget03 dataBox={() => ({ variant: 'facebook', friends: '89k', feeds: '459' })} >
-              <div className="chart-wrapper">
-                <Line data={makeSocialBoxData(0)} options={socialChartOpts} height={90} />
-              </div>
-            </Widget03>
-          </Col>
-
-          <Col xs="6" sm="6" lg="3">
-            <div className="brand-card">
-              <div className="brand-card-header bg-twitter">
-                <i className="fa fa-twitter"></i>
-                <div className="chart-wrapper">
-                  <Line data={makeSocialBoxData(1)} options={socialChartOpts} height={90} />
-                </div>
-              </div>
-              <div className="brand-card-body">
-                <div>
-                  <div className="text-value">973k</div>
-                  <div className="text-uppercase text-muted small">followers</div>
-                </div>
-                <div>
-                  <div className="text-value">1.792</div>
-                  <div className="text-uppercase text-muted small">tweets</div>
-                </div>
-              </div>
-            </div>
-          </Col>
-
-          <Col xs="6" sm="6" lg="3">
-            <div className="brand-card">
-              <div className="brand-card-header bg-linkedin">
-                <i className="fa fa-linkedin"></i>
-                <div className="chart-wrapper">
-                  <Line data={makeSocialBoxData(2)} options={socialChartOpts} height={90} />
-                </div>
-              </div>
-              <div className="brand-card-body">
-                <div>
-                  <div className="text-value">500+</div>
-                  <div className="text-uppercase text-muted small">contacts</div>
-                </div>
-                <div>
-                  <div className="text-value">292</div>
-                  <div className="text-uppercase text-muted small">feeds</div>
-                </div>
-              </div>
-            </div>
-          </Col>
-
-          <Col xs="6" sm="6" lg="3">
-            <div className="brand-card">
-              <div className="brand-card-header bg-google-plus">
-                <i className="fa fa-google-plus"></i>
-                <div className="chart-wrapper">
-                  <Line data={makeSocialBoxData(3)} options={socialChartOpts} height={90} />
-                </div>
-              </div>
-              <div className="brand-card-body">
-                <div>
-                  <div className="text-value">894</div>
-                  <div className="text-uppercase text-muted small">followers</div>
-                </div>
-                <div>
-                  <div className="text-value">92</div>
-                  <div className="text-uppercase text-muted small">circles</div>
-                </div>
-              </div>
-            </div>
-          </Col>
-        </Row>
-
         <Row>
           <Col>
             <Card>
               <CardHeader>
-                Traffic {' & '} Sales
+                Оценка работы
               </CardHeader>
               <CardBody>
                 <Row>

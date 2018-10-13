@@ -10,8 +10,9 @@ const initialState = {
 
 export default (state, action) => {
 	const { type, payload, error } = action;
-
+	console.log('action', action);
 	switch (type) {
+		case SIGN_UP + '_PENDING':
 		case SIGN_IN + '_PENDING': {
 			return {
 				...state,
@@ -19,6 +20,7 @@ export default (state, action) => {
 			};
 		}
 
+		case SIGN_UP + '_FULFILLED':
 		case SIGN_IN + '_FULFILLED': {
 			cookies.set('TOKEN', payload.token);
 			return {
@@ -29,13 +31,14 @@ export default (state, action) => {
 			};
 		}
 
+		case SIGN_UP + '_REJECTED':
 		case SIGN_IN + '_REJECTED': {
 			cookies.set('TOKEN', null);
 			return {
 				...state,
 				pending: false,
 				isAuth: false,
-				error,
+				error
 			};
 		}
 
