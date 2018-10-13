@@ -9,9 +9,10 @@ const JobCard = ({
 	skills,
 	description,
 	priceFrom,
-	priceTo
+	priceTo,
+	onClick
 }) => (
-	<div className="job-card">
+	<div className="job-card" onClick={ onClick }>
 		<img className="job-card__img" src={ imgPath } alt="" />
 		<div className="job-card__body">
 			<div className="job-card__header">
