@@ -32,6 +32,11 @@ const UserTest = Loadable({
 	loading: Loading
 });
 
+const Courses = Loadable({
+	loader: () => import('./views/Pages/Courses'),
+	loading: Loading
+});
+
 const routes = [
 	{ path: '/', exact: true, name: 'Главная', component: DefaultLayout },
 	{ path: '/dashboard', name: 'Рабочая панель', component: Dashboard },
@@ -48,6 +53,12 @@ const routes = [
 		exact: true,
 		name: 'Тесты пользователя',
 		component: UserTest
+	},
+	{
+		path: '/courses',
+		exact: true,
+		name: 'Курсы',
+		component: Courses
 	}
 ];
 
