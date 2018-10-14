@@ -11,8 +11,8 @@ export default {
 			icon: 'icon-pencil'
 		},
 		{
-			name: 'Статистика',
-			url: '/',
+			name: 'Вакансии',
+			url: '/jobs',
 			icon: 'icon-graph'
 		}
 	]

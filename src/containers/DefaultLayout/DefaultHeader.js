@@ -45,7 +45,7 @@ class DefaultHeader extends Component {
 					}}
 				/>
 				<AppSidebarToggler className="d-md-down-none" display="lg" />
-				<Nav className="d-md-down-none" navbar>
+				{/* <Nav className="d-md-down-none" navbar>
 					<NavItem className="px-3">
 						<RouterLink to="/">Рабочая панель</RouterLink>
 					</NavItem>
@@ -55,21 +55,19 @@ class DefaultHeader extends Component {
 					<NavItem className="px-3">
 						<RouterLink to="/settings">Настройки</RouterLink>
 					</NavItem>
-				</Nav>
+				</Nav> */}
 				<Nav className="ml-auto" navbar>
-					<NavItem className="d-md-down-none">
+					{/* <NavItem className="d-md-down-none">
 						<NavLink href="#">
 							<i className="icon-bell" />
-							{/*<Badge pill color="danger">*/}
-							{/*5*/}
-							{/*</Badge>*/}
+							{/*<Badge pill color="danger">*
 						</NavLink>
 					</NavItem>
 					<NavItem className="d-md-down-none">
 						<NavLink href="#">
 							<i className="icon-list" />
 						</NavLink>
-					</NavItem>
+					</NavItem> */}
 					<AppHeaderDropdown direction="down">
 						<DropdownToggle nav>
 							<img
