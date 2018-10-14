@@ -14,7 +14,7 @@ class RoleProvider extends Component {
 	render() {
 		const { user } = this.props;
 		const isAuth = this.isAuth();
-		console.log('auth', isAuth)
+
 		return (
 			<RoleContext.Provider
 				value={{

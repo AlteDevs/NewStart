@@ -23,9 +23,9 @@ export default (state, action) => {
 
 		case SIGN_UP + '_FULFILLED':
 		case SIGN_IN + '_FULFILLED': {
-			console.log('payload', payload)
 			cookies.set('TOKEN', payload.token);
 			cookies.set('USER_ID', payload.user_id);
+			cookies.set('ROLE', payload.role);
 			return {
 				...state,
 				isAuth: true,

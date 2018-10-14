@@ -7,7 +7,7 @@ const PrivateRoute = props => (
 		{userData => (
 			<RedirectFilter
 				routeProps={props}
-				redirect="/login"w
+				redirect="/login"
 				condition={userData.isAuth}
 			/>
 		)}

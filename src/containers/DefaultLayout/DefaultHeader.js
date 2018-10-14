@@ -30,7 +30,7 @@ const defaultProps = {};
 class DefaultHeader extends Component {
 	render() {
 		// eslint-disable-next-line
-		const { children, history, ...attributes } = this.props;
+		const { role, children, history, ...attributes } = this.props;
 
 		return (
 			<React.Fragment>
@@ -44,7 +44,9 @@ class DefaultHeader extends Component {
 						alt: 'Новое начало'
 					}}
 				/>
-				<AppSidebarToggler className="d-md-down-none" display="lg" />
+				{
+					role !== 0 && <AppSidebarToggler className="d-md-down-none" display="lg" />
+				}
 				{/* <Nav className="d-md-down-none" navbar>
 					<NavItem className="px-3">
 						<RouterLink to="/">Рабочая панель</RouterLink>
@@ -111,7 +113,7 @@ class DefaultHeader extends Component {
 						</DropdownMenu>
 					</AppHeaderDropdown>
 				</Nav>
-				<AppAsideToggler defaultOpen={true} className="d-md-down-none" />
+				{/*<AppAsideToggler defaultOpen={true} className="d-md-down-none" />*/}
 			</React.Fragment>
 		);
 	}

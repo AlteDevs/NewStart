@@ -16,6 +16,7 @@ import {
   TabContent,
   NavLink
 } from 'reactstrap';
+import { withRouter } from 'react-router-dom';
 import { Form as FormProvider, Field } from 'react-final-form';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -51,6 +52,8 @@ class Login extends Component {
 		signInAction({
 			role: this.getRoleType(),
 			...values
+		}).then(() => {
+			window.location.reload()
 		});
 	};
 
@@ -197,4 +200,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
 	null,
 	mapDispatchToProps
-)(Login);
+)(withRouter(Login));

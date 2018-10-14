@@ -8,7 +8,7 @@ const PrivateRoleRoute = props => (
 		{userData => (
 			<RedirectFilter
 				routeProps={props}
-				userRole={props.userRole.toLowerCase()}
+				userRole={props.userRole}
 				redirect={props.redirect}
 				condition={userData.isAuth}
 			/>
@@ -18,7 +18,7 @@ const PrivateRoleRoute = props => (
 
 PrivateRoleRoute.propTypes = {
 	redirect: PropTypes.string.isRequired,
-	userRole: PropTypes.string.isRequired
+	userRole: PropTypes.number.isRequired
 };
 
 export default PrivateRoleRoute;

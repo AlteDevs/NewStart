@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { sendMessage } from '../../../store/bot'
 import { EntypoPaperPlane, EntypoMic } from 'react-entypo';
 //import Audio from './Audio';
 
@@ -32,12 +35,20 @@ class Input extends Component {
 	}*/
 
 	handleSubmit(e) {
+		const { sendMessageAction } = this.props
 		e.preventDefault();
-		this.props.onSubmit(this.state.value);
+		this.props.onSubmit(this.state.value)
+		sendMessageAction({
+			answer: this.state.value,
+		})
 		this.setState({ value: '' });
 	}
 
 	componentDidMount() {
+		const { sendMessageAction } = this.props
+		sendMessageAction({
+			answer: null
+		})
 		this._text.focus();
 		//this.audio = new Audio(this.handleAudioStart, this.handleAudio, this.handleAudioError);
 	}
@@ -49,7 +60,7 @@ class Input extends Component {
 					className="text-input"
 					type="text"
 					name="inputText"
-					placeholder="Enter your message"
+					placeholder="Введите сообщение"
 					value={this.state.value}
 					ref={input => (this._text = input)}
 					onChange={this.handleChange}
@@ -62,11 +73,13 @@ class Input extends Component {
 								onClick={this.handleListen}>
 					<EntypoMic/>
 				</button> */}
-				<button className="btn-send" type="submit" value="Send">
-					<EntypoPaperPlane /> &nbsp;Send
+				<button className="button-send btn btn-success" type="submit" value="Send">
+					<span>Отправить</span> <EntypoPaperPlane />
 				</button>
 			</form>
 		);
 	}
 }
-export default Input;
+export default connect(null, (dispatch) => ({
+	sendMessageAction: bindActionCreators(sendMessage, dispatch)
+}))(Input);

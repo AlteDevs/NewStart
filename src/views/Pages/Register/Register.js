@@ -51,6 +51,8 @@ class Register extends Component {
 		createUserAction({
 			role: this.getRoleType(),
 			...values
+		}).then(() => {
+			window.location.reload()
 		});
 	};
 
@@ -156,7 +158,7 @@ class Register extends Component {
 					<Fragment>
 						<h3 className="pb-4">HR - специалист</h3>
 						<InputGroup className="mb-3">
-							<Field name="lastName">
+							<Field name="lastname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -168,7 +170,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="firstName">
+							<Field name="firstname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -180,7 +182,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="middleName">
+							<Field name="middlename">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -239,7 +241,7 @@ class Register extends Component {
 					<Fragment>
 						<h3 className="pb-4">Образовательный сервис</h3>
 						<InputGroup className="mb-3">
-							<Field name="lastName">
+							<Field name="lastname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -251,7 +253,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="firstName">
+							<Field name="firstname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -263,7 +265,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="middleName">
+							<Field name="middlename">
 								{({ input, meta }) => (
 									<Input
 										type="text"

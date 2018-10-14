@@ -11,6 +11,7 @@ import { createLogger } from 'redux-logger';
 
 import auth from './auth';
 import user from './user';
+import bot from './bot';
 import userTest from './userTest';
 
 const createStore = initialState => {
@@ -27,7 +28,8 @@ const createStore = initialState => {
 	const reducer = combineReducers({
 		auth,
     userTest,
-		user
+		user,
+		bot
 	});
 
 	return reduxCreateStore(reducer, initialState, middleware);

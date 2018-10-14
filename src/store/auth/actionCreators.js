@@ -17,7 +17,10 @@ export const signIn = values => ({
 				throw response
 			}
 
-			return response
+			return {
+				role: values.role,
+				...response,
+			}
 		})
 });
 
@@ -37,7 +40,10 @@ export const signUp = values => ({
 				throw response
 			}
 
-			return response
+			return {
+				role: values.role,
+				...response,
+			}
 		})
 });
 

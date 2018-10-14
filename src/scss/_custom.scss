@@ -216,3 +216,12 @@ $width: 100px;
 	height: 150px;
 	border-radius: 50%;
 }
+
+.button-send {
+	display: flex;
+	align-items: center;
+
+	span {
+		margin-right: 5px;
+	}
+}

@@ -97,6 +97,12 @@ const routes = [
 		exact: true,
 		name: 'Профиль пользователя',
 		component: UserProfile
+	},
+	{
+		path: '/chat',
+		exact: true,
+		name: 'Бот',
+		component: Chat
 	}
 ];
 

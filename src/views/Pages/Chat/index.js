@@ -8,7 +8,7 @@ class Chat extends Component {
 			<Row className="bot-container">
 				<ReactBotUI
 					dialogflow={null}
-					dialogHeightMax={700}
+					dialogHeightMax={800}
 					isUserHidden={true}
 					isVisible={true}
 					title="Бот"
