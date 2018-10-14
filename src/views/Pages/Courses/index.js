@@ -21,7 +21,7 @@ class Courses extends Component {
 					Курсы
 					<NavLink to="/courses/create">
 						<Button color="success" className="add-course-button">
-							Создать курс
+							Добавить курс
 						</Button>
 					</NavLink>
 				</h1>
