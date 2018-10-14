@@ -1,4 +1,4 @@
-import { CREATE_COURSE } from './actions';
+import { CREATE_COURSE, FETCH_COURSES } from './actions';
 import { apiUrl } from 'constants/api';
 
 export const createCourse = formData => ({
@@ -7,4 +7,9 @@ export const createCourse = formData => ({
 		method: 'POST',
 		body: formData
 	})
+});
+
+export const fetchCourses = () => ({
+	type: FETCH_COURSES,
+	payload: fetch(`${apiUrl}/get_all_courses`).then(response => response.json())
 });
