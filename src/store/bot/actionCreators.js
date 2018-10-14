@@ -21,6 +21,9 @@ export const sendMessage = values => ({
 				throw response
 			}
 
-			return response
+			return {
+				isUser: false,
+				...response
+			}
 		})
 });

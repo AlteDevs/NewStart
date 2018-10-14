@@ -2,18 +2,14 @@ import React, { Component } from 'react';
 import { NavLink as RouterLink, withRouter } from 'react-router-dom';
 import cookies from 'utils/cookies';
 import {
-	Badge,
 	DropdownItem,
 	DropdownMenu,
 	DropdownToggle,
 	Nav,
-	NavItem,
-	NavLink
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 import {
-	AppAsideToggler,
 	AppHeaderDropdown,
 	AppNavbarBrand,
 	AppSidebarToggler

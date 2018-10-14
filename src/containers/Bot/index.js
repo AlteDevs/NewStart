@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import ApiAiClient from './lib/dialogflow';
+import { withRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Dialog from './components/Dialog';
 import Input from './components/Input';
+import mockData from './mockData'
 import '../../scss/bot.scss';
 
 const BOT_DELAY = 4000;
@@ -15,13 +17,13 @@ function getBotDelay(msg, isQuick = false) {
   return msg.length > BOT_MAX_CHARS ? delay : Math.floor(msg.length / speed);
 }
 
-export default class ReactBotUI extends Component {
+class ReactBotUI extends Component {
   constructor(props) {
     super(props);
     if (props.dialogflow) {
       this.dialogflow = new ApiAiClient(props.dialogflow);
     }
-    this.botQueue = [];
+    this.botQueue = mockData
     this.isProcessingQueue = false;
     this.state = {
       title: props.title || 'React Bot UI',
@@ -33,8 +35,6 @@ export default class ReactBotUI extends Component {
 
     this.appendMessage = this.appendMessage.bind(this);
     this.processBotQueue = this.processBotQueue.bind(this);
-    this.processResponse = this.processResponse.bind(this);
-    this.getResponse = this.getResponse.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.handleSubmitText = this.handleSubmitText.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
@@ -43,51 +43,34 @@ export default class ReactBotUI extends Component {
   appendMessage(text, isUser = false, next = () => {}) {
     let messages = this.state.messages.slice();
     messages.push({isUser, text});
-    this.setState({messages, isBotTyping: this.botQueue.length > 0}, next);
+    this.setState({messages, isBotTyping: false}, next);
   }
 
-  processBotQueue(isQuick = false) {
+  processBotQueue = (isQuick = false) => {
     if (!this.isProcessingQueue && this.botQueue.length) {
       this.isProcessingQueue = true;
       const nextMsg = this.botQueue.shift();
-      setTimeout(() => {
-        this.isProcessingQueue = false;
-        this.appendMessage(nextMsg, false, this.processBotQueue);
-      }, getBotDelay(nextMsg, isQuick));
+      if(!this.botQueue.length) {
+				setTimeout(() => {
+					this.isProcessingQueue = false;
+					this.appendMessage(nextMsg, false);
+					setTimeout(() => {
+					  this.props.history.push('/courses')
+          }, 1000)
+				}, getBotDelay(nextMsg, isQuick));
+      } else {
+				setTimeout(() => {  
+					this.isProcessingQueue = false;
+					this.appendMessage(nextMsg, false);
+				}, getBotDelay(nextMsg, isQuick));
+      }
     }
-  }
-
-  processResponse(text) {
-    const messages = text
-      .match(/[^.!?]+[.!?]*/g)
-      .map(str => str.trim());
-    this.botQueue = this.botQueue.concat(messages);
-
-    // start processing bot queue
-    const isQuick = !this.state.isBotTyping;
-    this.setState({isBotTyping: true}, () => this.processBotQueue(isQuick));
-  }
-
-  getResponse(text) {
-    return this.dialogflow.textRequest(text)
-      .then(data => data.result.fulfillment.speech);
   }
 
   handleSubmitText(text) {
-
     // append user text
     this.appendMessage(text, true);
-
-    // fetch bot text, process as queue
-    if (this.dialogflow) {
-      this.getResponse(text)
-        .then(this.processResponse);
-    } else if (this.props.getResponse) {
-      this.props.getResponse(text)
-        .then(this.processResponse);
-    } else {
-      this.processResponse('Sorry, I\'m not configured to respond. :\'(')
-    }
+    this.processBotQueue()
   }
 
   handleResize(e) {
@@ -115,6 +98,11 @@ export default class ReactBotUI extends Component {
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize(window);
+		const nextMsg = this.botQueue.shift();
+		setTimeout(() => {
+			this.isProcessingQueue = false;
+			this.appendMessage(nextMsg, false);
+		}, getBotDelay(nextMsg, true));
   }
 
   componentWillUnmount() {
@@ -135,3 +123,5 @@ export default class ReactBotUI extends Component {
     );
   }
 }
+
+export default withRouter(ReactBotUI)

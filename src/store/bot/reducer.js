@@ -8,7 +8,6 @@ const initialState = {
 
 export default (state, action) => {
 	const { type, payload, error } = action;
-	console.log('action', action);
 	switch (type) {
 		case SEND_MESSAGE + '_PENDING': {
 			return {

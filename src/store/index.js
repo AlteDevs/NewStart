@@ -23,7 +23,7 @@ const createStore = initialState => {
 		: window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({});
 
 	const middleware = composeWithDevTools(
-		applyMiddleware(thunk, promiseMiddleware(), createLogger())
+		applyMiddleware(thunk, promiseMiddleware())
 	);
 
 	const reducer = combineReducers({
