@@ -118,7 +118,7 @@ export default class ReactBotUI extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize');
+    window.removeEventListener('resize', this.handleResize);
   }
 
   render() {
