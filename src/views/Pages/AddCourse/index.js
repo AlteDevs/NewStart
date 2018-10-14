@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Form as FormProvider, Field } from 'react-final-form';
+// import { Form as FormProvider, Field } from 'react-final-form';
 import {
 	Button,
 	Card,
@@ -16,11 +16,16 @@ import objectToFormData from 'object-to-formdata';
 import { createCourse } from 'store/courses';
 
 class AddCourse extends Component {
-	onSubmit = values => {
+	constructor(props) {
+		super(props);
+	}
+	onSubmit = async e => {
+		e.preventDefault();
+		const formData = new FormData(e.nativeEvent.target);
+		formData.append('author_id', 1);
 		let { createCourse } = this.props;
-		let formData = objectToFormData(values);
-		console.log(formData);
-		createCourse(formData);
+		await createCourse(formData);
+		this.props.history.push('/courses');
 	};
 
 	formValidate = () => {};
@@ -33,102 +38,91 @@ class AddCourse extends Component {
 						<Col md="8">
 							<Card className="mx-4">
 								<CardBody className="p-4">
-									<Form>
-										<h1>Создание курса</h1>
-										<FormProvider
-											onSubmit={this.onSubmit}
-											// validate={ this.formValidate }
-											render={({ handleSubmit }) => {
-												return (
-													<Fragment>
-														<InputGroup className="mb-3">
-															<Field name="name">
-																{({ input, meta }) => (
-																	<Input
-																		type="text"
-																		placeholder="Название курса"
-																		{...input}
-																	/>
-																)}
-															</Field>
-														</InputGroup>
-														<InputGroup className="mb-3">
-															<Field name="type">
-																{({ input, meta }) => (
-																	<Input
-																		type="text"
-																		placeholder="Тип проведения курса"
-																		{...input}
-																	/>
-																)}
-															</Field>
-														</InputGroup>
-														<InputGroup className="mb-3">
-															<Field name="description">
-																{({ input, meta }) => (
-																	<Input
-																		type="text"
-																		placeholder="Описание"
-																		{...input}
-																	/>
-																)}
-															</Field>
-														</InputGroup>
-														<InputGroup className="mb-3">
-															<Field name="time">
-																{({ input, meta }) => (
-																	<Input
-																		type="text"
-																		placeholder="Время курса"
-																		{...input}
-																	/>
-																)}
-															</Field>
-														</InputGroup>
-														<InputGroup className="mb-3">
-															<Field name="detailDescription">
-																{({ input, meta }) => (
-																	<Input
-																		type="text"
-																		placeholder="Детальное описание"
-																		{...input}
-																	/>
-																)}
-															</Field>
-														</InputGroup>
-														<InputGroup className="mb-3">
-															<Field name="geo">
-																{({ input, meta }) => (
-																	<Input
-																		type="text"
-																		placeholder="Геолокация"
-																		{...input}
-																	/>
-																)}
-															</Field>
-														</InputGroup>
-														<InputGroup className="mb-3">
-															<Field name="reference">
-																{({ input, meta }) => (
-																	<Input
-																		type="text"
-																		placeholder="Ссылка на курс"
-																		{...input}
-																	/>
-																)}
-															</Field>
-														</InputGroup>
-														<Button
-															onClick={handleSubmit}
-															color="success"
-															block
-														>
-															Создать курс
-														</Button>
-													</Fragment>
-												);
-											}}
-										/>
+									<h1>Создание курса</h1>
+									<Form onSubmit={this.onSubmit}>
+										<InputGroup className="mb-3">
+											<Input
+												type="text"
+												name="title"
+												placeholder="Название курса"
+												required
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="text"
+												placeholder="Название сервиса"
+												required
+												name="service_name"
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="text"
+												placeholder="Тип проведения курса"
+												required
+												name="status"
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="textarea"
+												placeholder="Описание"
+												required
+												name="description"
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="textarea"
+												placeholder="Полное описание"
+												required
+												name="detail_desc"
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="date"
+												placeholder="Дата начала курса"
+												required
+												name="timing_start"
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="date"
+												placeholder="Дата окончания курса"
+												required
+												name="timing_end"
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="text"
+												placeholder="Местоположение (если в оффлайне)"
+												required
+												name="geo"
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="text"
+												placeholder="Ссылка на курс"
+												required
+												name="url_course"
+											/>
+										</InputGroup>
+										<InputGroup className="mb-3">
+											<Input
+												type="file"
+												placeholder="Изображение курса"
+												required
+												name="picture"
+											/>
+										</InputGroup>
+										<Button type="submit" color="success" block>
+											Создать курс
+										</Button>
 									</Form>
 								</CardBody>
 							</Card>

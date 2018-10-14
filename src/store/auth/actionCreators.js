@@ -10,12 +10,12 @@ export const signIn = values => ({
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(values)
-	})
-		.then(async res => {
-			const response = await res.json()
-			if(response.status === 'Error' || response.status === 401) {
-				throw response
-			}
+	}).then(async res => {
+		const response = await res.json();
+		if (response.status === 'Error' || response.status === 401) {
+			throw response;
+		}
+		console.log(response);
 
 			return {
 				role: values.role,
@@ -33,12 +33,11 @@ export const signUp = values => ({
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(values)
-	})
-		.then(async res => {
-			const response = await res.json()
-			if(response.status === 'Error' || response.status === 401) {
-				throw response
-			}
+	}).then(async res => {
+		const response = await res.json();
+		if (response.status === 'Error' || response.status === 401) {
+			throw response;
+		}
 
 			return {
 				role: values.role,
