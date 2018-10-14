@@ -52,6 +52,11 @@ const UserProfile = Loadable({
 	loading: Loading
 });
 
+const Chat = Loadable({
+	loader: () => import('./views/Pages/Chat'),
+	loading: Loading
+});
+
 const routes = [
 	{ path: '/', exact: true, name: 'Главная', component: DefaultLayout },
 	{ path: '/dashboard', name: 'Рабочая панель', component: Dashboard },
@@ -84,13 +89,13 @@ const routes = [
 	{
 		path: '/courses/:courseId',
 		exact: true,
-		name: 'Курс', //Сделать динамическое название курсов в breadcrumbs
+		name: 'Курс',
 		component: CoursesDetail
 	},
 	{
 		path: '/user-profile',
 		exact: true,
-		name: 'Профиль пользователя', //Сделать динамическое название курсов в breadcrumbs
+		name: 'Профиль пользователя',
 		component: UserProfile
 	}
 ];

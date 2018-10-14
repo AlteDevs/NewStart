@@ -22,7 +22,7 @@ class UserProfile extends Component {
 						<Form>
 							<FormGroup>
 								<Label for="userLastName">Фамилия</Label>
-								<Input
+								<Input     
 									type="text"
 									name="userLastName"
 									id="userLastName"

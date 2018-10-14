@@ -119,3 +119,9 @@ h1 {
 .add-course-button {
 	margin-left: 20px;
 }
+
+.aside-menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
