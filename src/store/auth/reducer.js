@@ -11,7 +11,6 @@ const initialState = {
 
 export default (state, action) => {
 	const { type, payload, error } = action;
-	console.log('action', action);
 	switch (type) {
 		case SIGN_UP + '_PENDING':
 		case SIGN_IN + '_PENDING': {
