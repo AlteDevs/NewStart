@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { Form as FormProvider, Field } from 'react-final-form';
 import {
 	Button,
@@ -11,10 +12,15 @@ import {
 	InputGroup,
 	Row
 } from 'reactstrap';
+import objectToFormData from 'object-to-formdata';
+import { createCourse } from 'store/courses';
 
 class AddCourse extends Component {
 	onSubmit = values => {
-		console.log(values);
+		let { createCourse } = this.props;
+		let formData = objectToFormData(values);
+		console.log(formData);
+		createCourse(formData);
 	};
 
 	formValidate = () => {};
@@ -134,4 +140,11 @@ class AddCourse extends Component {
 	}
 }
 
-export default AddCourse;
+export default connect(
+	null,
+	dispatch => {
+		return {
+			createCourse: formData => dispatch(createCourse(formData))
+		};
+	}
+)(AddCourse);
