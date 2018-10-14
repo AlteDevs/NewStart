@@ -113,6 +113,10 @@ h1 {
 }
 
 .course-image {
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	border-bottom: 1px solid $secondary;
 }
 

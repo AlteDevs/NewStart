@@ -14,10 +14,11 @@ import {
 	Row
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 import { fetchCourses } from 'store/courses';
 import { apiUrl } from 'constants/api';
 class Courses extends Component {
-	async componentWillMount() {
+	async componentDidMount() {
 		let { dispatch } = this.props;
 		await dispatch(fetchCourses());
 	}
@@ -38,27 +39,35 @@ class Courses extends Component {
 					{courses.map((item, index) => (
 						<Col xs="4" key={index}>
 							<Card>
-								<CardImg
-									top
-									width="100%"
-									src={`${apiUrl}/get_image?image=${item.picture}`}
-									alt="Card image cap"
+								<div
 									className="course-image"
+									style={{
+										backgroundImage: `url(${apiUrl}/get_image?image=${
+											item.picture
+										})`
+									}}
 								/>
+
 								<CardBody>
 									<CardTitle>{item.title}</CardTitle>
 									<CardSubtitle>10-дневный курс</CardSubtitle>
-									<CardText>
-										В этом курсе вы научитесь программировать на Java
-									</CardText>
+									<CardText>{item.description}</CardText>
 									<Row className="align-items-center justify-content-between">
 										<Col xs="6">
-											<NavLink to="/courses/1">
+											<NavLink to={`/courses/${item.id}`}>
 												<Button color="primary">Просмотреть</Button>
 											</NavLink>
 										</Col>
 										<Col xs="6">
-											<div className="course-status online">Онлайн курс</div>
+											<div
+												className={classNames({
+													'course-status': true,
+													online: !!item.status.toLowerCase() === 'онлайн',
+													offline: !!item.status.toLowerCase() === 'оффлайн'
+												})}
+											>
+												{item.status}
+											</div>
 										</Col>
 									</Row>
 								</CardBody>
@@ -72,5 +81,5 @@ class Courses extends Component {
 }
 
 export default connect(state => ({
-	courses: state.courses.items
+	courses: state.courses.items.reverse()
 }))(Courses);
