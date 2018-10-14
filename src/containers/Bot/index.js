@@ -59,7 +59,7 @@ class ReactBotUI extends Component {
           }, 1000)
 				}, getBotDelay(nextMsg, isQuick));
       } else {
-				setTimeout(() => {
+				setTimeout(() => {  
 					this.isProcessingQueue = false;
 					this.appendMessage(nextMsg, false);
 				}, getBotDelay(nextMsg, isQuick));
