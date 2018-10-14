@@ -30,32 +30,7 @@
   }
 }
 
-.container * {
-  box-sizing: border-box;
-  margin: 0;
-}
-.container {
-  bottom: 0;
-  position: absolute;
-  right: var(--container-right);
-  width: var(--container-width);
-}
-.container header {
-  background: var(--primary-color);
-  cursor: pointer;
-  height: 45px;
-  padding: 5px 10px;
-}
-.container header h1, #demo div h1 {
-  color: var(--font-color);
-  margin: 5px;
-  font-family: var(--font-family);
-  font-size: 1.3em;
-  font-weight: var(--font-weight);
-}
-.container div {
-  /* transition: all 0.75s ease-in-out; */
-}
+
 .messages-wrapper {
   background: var(--container-bg);
   position: relative;
