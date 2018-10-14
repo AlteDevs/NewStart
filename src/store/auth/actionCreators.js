@@ -10,15 +10,15 @@ export const signIn = values => ({
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(values)
-	})
-		.then(async res => {
-			const response = await res.json()
-			if(response.status === 'Error' || response.status === 401) {
-				throw response
-			}
+	}).then(async res => {
+		const response = await res.json();
+		if (response.status === 'Error' || response.status === 401) {
+			throw response;
+		}
+		console.log(response);
 
-			return response
-		})
+		return response;
+	})
 });
 
 export const signUp = values => ({
@@ -30,15 +30,14 @@ export const signUp = values => ({
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(values)
-	})
-		.then(async res => {
-			const response = await res.json()
-			if(response.status === 'Error' || response.status === 401) {
-				throw response
-			}
+	}).then(async res => {
+		const response = await res.json();
+		if (response.status === 'Error' || response.status === 401) {
+			throw response;
+		}
 
-			return response
-		})
+		return response;
+	})
 });
 
 export const signOut = () => ({

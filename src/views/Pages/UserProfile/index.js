@@ -36,7 +36,7 @@ class UserProfile extends Component {
 							<img className="form-img" src={'assets/img/avatars/user.jpg'} alt=""/>
 							<FormGroup>
 								<Label for="userLastName">Фамилия</Label>
-								<Input
+								<Input     
 									type="text"
 									name="userLastName"
 									id="userLastName"
