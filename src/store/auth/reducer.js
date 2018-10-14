@@ -5,6 +5,7 @@ const initialState = {
 	pending: false,
 	isAuth: !!cookies.get('TOKEN'),
 	token: cookies.get('TOKEN'),
+	userId: cookies.get('USER_ID'),
 	error: null
 };
 
@@ -22,11 +23,14 @@ export default (state, action) => {
 
 		case SIGN_UP + '_FULFILLED':
 		case SIGN_IN + '_FULFILLED': {
+			console.log('payload', payload)
 			cookies.set('TOKEN', payload.token);
+			cookies.set('USER_ID', payload.user_id);
 			return {
 				...state,
 				isAuth: true,
 				token: payload.token,
+				userId: payload.user_id,
 				error: null
 			};
 		}
