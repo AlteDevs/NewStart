@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import ReactBotUI from '../../containers/Bot';
 
 import {
 	AppAside,
@@ -11,9 +12,7 @@ import {
 } from '@coreui/react';
 // sidebar nav config
 import navigation from '../../_nav';
-import { NavLink as RouterLink } from 'react-router-dom';
 import routes from '../../routes';
-import DefaultAside from './DefaultAside';
 import DefaultHeader from './DefaultHeader';
 
 class DefaultLayout extends Component {
@@ -47,7 +46,15 @@ class DefaultLayout extends Component {
 						</Container>
 					</main>
 					<AppAside fixed isOpen={true}>
-						<DefaultAside />
+						<div className="bot-container">
+							<ReactBotUI
+								dialogflow={null}
+								dialogHeightMax={700}
+								isUserHidden={true}
+								isVisible={true}
+								title="Бот"
+							/>
+						</div>
 					</AppAside>
 				</div>
 			</div>
