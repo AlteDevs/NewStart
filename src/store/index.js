@@ -8,10 +8,12 @@ import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createLogger } from 'redux-logger';
 
-
 import auth from './auth';
 import user from './user';
+import bot from './bot';
 import userTest from './userTest';
+import courses from './courses';
+import course from './course';
 
 const createStore = initialState => {
 	const reduxDevTool =
@@ -21,13 +23,16 @@ const createStore = initialState => {
 		: window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({});
 
 	const middleware = composeWithDevTools(
-		applyMiddleware(thunk, promiseMiddleware(), createLogger())
+		applyMiddleware(thunk, promiseMiddleware())
 	);
 
 	const reducer = combineReducers({
 		auth,
-    userTest,
-		user
+		userTest,
+		user,
+		courses,
+		course,
+		bot
 	});
 
 	return reduxCreateStore(reducer, initialState, middleware);

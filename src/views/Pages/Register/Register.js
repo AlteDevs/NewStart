@@ -1,17 +1,16 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Form as FormProvider, Field } from 'react-final-form';
 import {
 	Button,
 	Card,
 	CardBody,
-	CardFooter,
 	Col,
 	Container,
 	Form,
 	Input,
 	InputGroup,
-	InputGroupAddon,
-	InputGroupText,
 	Row,
 	Nav,
 	NavItem,
@@ -21,41 +20,62 @@ import {
 } from 'reactstrap';
 import classnames from 'classnames';
 
+import { signUp } from '../../../store/auth';
+
 class Register extends Component {
 	state = {
-		activeTab: '1',
+		activeTab: '1'
 	};
 
-	onSubmit = (values) => {
-		console.log(values)
-	}
+	getRoleType = () => {
+		const { activeTab } = this.state;
+
+		switch (activeTab) {
+			case '1': {
+				return 0;
+			}
+			case '2': {
+				return 1;
+			}
+			case '3': {
+				return 2;
+			}
+			default:
+				return 0;
+		}
+	};
+
+	onSubmit = values => {
+		const { createUserAction } = this.props;
+
+		createUserAction({
+			role: this.getRoleType(),
+			...values
+		}).then(() => {
+			window.location.reload()
+		});
+	};
 
 	toggle(tab) {
 		if (this.state.activeTab !== tab) {
 			this.setState({
-				activeTab: tab,
+				activeTab: tab
 			});
 		}
 	}
 
-	formValidate = () => {
-
-	}
+	formValidate = () => {};
 
 	renderProfessionalForm = () => (
 		<FormProvider
-			onSubmit={ this.onSubmit }
+			onSubmit={this.onSubmit}
 			// validate={ this.formValidate }
-			render={({
-								 handleSubmit,
-								 form,
-								 values,
-							 }) => {
+			render={({ handleSubmit, form, values }) => {
 				return (
 					<Fragment>
 						<h3 className="pb-4">Профессионал</h3>
 						<InputGroup className="mb-3">
-							<Field name="lastName">
+							<Field name="lastname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -67,7 +87,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="firstName">
+							<Field name="firstname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -79,7 +99,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="middleName">
+							<Field name="middlename">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -105,11 +125,7 @@ class Register extends Component {
 						<InputGroup className="mb-3">
 							<Field name="password">
 								{({ input, meta }) => (
-									<Input
-										type="password"
-										placeholder="Пароль"
-										{...input}
-									/>
+									<Input type="password" placeholder="Пароль" {...input} />
 								)}
 							</Field>
 						</InputGroup>
@@ -124,32 +140,25 @@ class Register extends Component {
 								)}
 							</Field>
 						</InputGroup>
-						<Button
-							onClick={handleSubmit}
-							color="success"
-							block>
+						<Button onClick={handleSubmit} color="success" block>
 							Создать аккаунт
 						</Button>
 					</Fragment>
-				)
+				);
 			}}
 		/>
-	)
+	);
 
 	renderHrForm = () => (
 		<FormProvider
-			onSubmit={ this.onSubmit }
+			onSubmit={this.onSubmit}
 			// validate={ this.formValidate }
-			render={({
-								 handleSubmit,
-								 form,
-								 values,
-							 }) => {
+			render={({ handleSubmit, form, values }) => {
 				return (
 					<Fragment>
 						<h3 className="pb-4">HR - специалист</h3>
 						<InputGroup className="mb-3">
-							<Field name="lastName">
+							<Field name="lastname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -161,7 +170,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="firstName">
+							<Field name="firstname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -173,7 +182,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="middleName">
+							<Field name="middlename">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -199,11 +208,7 @@ class Register extends Component {
 						<InputGroup className="mb-3">
 							<Field name="password">
 								{({ input, meta }) => (
-									<Input
-										type="password"
-										placeholder="Пароль"
-										{...input}
-									/>
+									<Input type="password" placeholder="Пароль" {...input} />
 								)}
 							</Field>
 						</InputGroup>
@@ -218,32 +223,25 @@ class Register extends Component {
 								)}
 							</Field>
 						</InputGroup>
-						<Button
-							onClick={handleSubmit}
-							color="success"
-							block>
+						<Button onClick={handleSubmit} color="success" block>
 							Создать аккаунт
 						</Button>
 					</Fragment>
-				)
+				);
 			}}
 		/>
-	)
+	);
 
 	renderEducationForm = () => (
 		<FormProvider
-			onSubmit={ this.onSubmit }
+			onSubmit={this.onSubmit}
 			// validate={ this.formValidate }
-			render={({
-								 handleSubmit,
-								 form,
-								 values,
-							 }) => {
+			render={({ handleSubmit, form, values }) => {
 				return (
 					<Fragment>
 						<h3 className="pb-4">Образовательный сервис</h3>
 						<InputGroup className="mb-3">
-							<Field name="lastName">
+							<Field name="lastname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -255,7 +253,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="firstName">
+							<Field name="firstname">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -267,7 +265,7 @@ class Register extends Component {
 							</Field>
 						</InputGroup>
 						<InputGroup className="mb-3">
-							<Field name="middleName">
+							<Field name="middlename">
 								{({ input, meta }) => (
 									<Input
 										type="text"
@@ -293,11 +291,7 @@ class Register extends Component {
 						<InputGroup className="mb-3">
 							<Field name="password">
 								{({ input, meta }) => (
-									<Input
-										type="password"
-										placeholder="Пароль"
-										{...input}
-									/>
+									<Input type="password" placeholder="Пароль" {...input} />
 								)}
 							</Field>
 						</InputGroup>
@@ -312,17 +306,14 @@ class Register extends Component {
 								)}
 							</Field>
 						</InputGroup>
-						<Button
-							onClick={handleSubmit}
-							color="success"
-							block>
+						<Button onClick={handleSubmit} color="success" block>
 							Создать аккаунт
 						</Button>
 					</Fragment>
-				)
+				);
 			}}
 		/>
-	)
+	);
 
 	render() {
 		return (
@@ -338,24 +329,36 @@ class Register extends Component {
 										<Nav tabs>
 											<NavItem>
 												<NavLink
-													className={classnames({ active: this.state.activeTab === '1' })}
-													onClick={() => { this.toggle('1'); }}
+													className={classnames({
+														active: this.state.activeTab === '1'
+													})}
+													onClick={() => {
+														this.toggle('1');
+													}}
 												>
 													Профессионал
 												</NavLink>
 											</NavItem>
 											<NavItem>
 												<NavLink
-													className={classnames({ active: this.state.activeTab === '2' })}
-													onClick={() => { this.toggle('2'); }}
+													className={classnames({
+														active: this.state.activeTab === '2'
+													})}
+													onClick={() => {
+														this.toggle('2');
+													}}
 												>
 													HR - специалист
 												</NavLink>
 											</NavItem>
 											<NavItem>
 												<NavLink
-													className={classnames({ active: this.state.activeTab === '3' })}
-													onClick={() => { this.toggle('3'); }}
+													className={classnames({
+														active: this.state.activeTab === '3'
+													})}
+													onClick={() => {
+														this.toggle('3');
+													}}
 												>
 													Образовательный сервис
 												</NavLink>
@@ -363,14 +366,10 @@ class Register extends Component {
 										</Nav>
 										<TabContent activeTab={this.state.activeTab}>
 											<TabPane tabId="1">
-												{ this.renderProfessionalForm() }
+												{this.renderProfessionalForm()}
 											</TabPane>
-											<TabPane tabId="2">
-												{ this.renderHrForm() }
-											</TabPane>
-											<TabPane tabId="3">
-												{ this.renderEducationForm() }
-											</TabPane>
+											<TabPane tabId="2">{this.renderHrForm()}</TabPane>
+											<TabPane tabId="3">{this.renderEducationForm()}</TabPane>
 										</TabContent>
 									</Form>
 								</CardBody>
@@ -383,4 +382,15 @@ class Register extends Component {
 	}
 }
 
-export default Register;
+// const mapStateToProps = (state) => ({
+//
+// })
+
+const mapDispatchToProps = dispatch => ({
+	createUserAction: bindActionCreators(signUp, dispatch)
+});
+
+export default connect(
+	null,
+	mapDispatchToProps
+)(Register);

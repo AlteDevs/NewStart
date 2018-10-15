@@ -1,8 +1,11 @@
 import { FETCH_USER } from './actions';
+import cookies from '../../utils/cookies';
 
 const initialState = {
 	pending: false,
-	data: {},
+	data: {
+		role: Number(cookies.get('ROLE'))
+	},
 	error: null
 };
 
@@ -21,7 +24,10 @@ export default (state, action) => {
 			return {
 				...state,
 				pending: false,
-				data: payload,
+				data: {
+					...initialState.data,
+					...payload,
+				},
 				error: null
 			};
 		}

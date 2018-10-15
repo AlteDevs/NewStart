@@ -32,6 +32,31 @@ const UserTest = Loadable({
 	loading: Loading
 });
 
+const Courses = Loadable({
+	loader: () => import('./views/Pages/Courses'),
+	loading: Loading
+});
+
+const AddCourse = Loadable({
+	loader: () => import('./views/Pages/AddCourse'),
+	loading: Loading
+});
+
+const CoursesDetail = Loadable({
+	loader: () => import('./views/Pages/Courses/Detail'),
+	loading: Loading
+});
+
+const UserProfile = Loadable({
+	loader: () => import('./views/Pages/UserProfile'),
+	loading: Loading
+});
+
+const Chat = Loadable({
+	loader: () => import('./views/Pages/Chat'),
+	loading: Loading
+});
+
 const routes = [
 	{ path: '/', exact: true, name: 'Главная', component: DefaultLayout },
 	{ path: '/dashboard', name: 'Рабочая панель', component: Dashboard },
@@ -48,6 +73,36 @@ const routes = [
 		exact: true,
 		name: 'Тесты пользователя',
 		component: UserTest
+	},
+	{
+		path: '/courses',
+		exact: true,
+		name: 'Курсы',
+		component: Courses
+	},
+	{
+		path: '/courses/create',
+		exact: true,
+		name: 'Создание курса',
+		component: AddCourse
+	},
+	{
+		path: '/courses/:courseId',
+		exact: true,
+		name: 'Курс',
+		component: CoursesDetail
+	},
+	{
+		path: '/user-profile',
+		exact: true,
+		name: 'Профиль пользователя',
+		component: UserProfile
+	},
+	{
+		path: '/chat',
+		exact: true,
+		name: 'Бот',
+		component: Chat
 	}
 ];
 

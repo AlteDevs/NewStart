@@ -15,14 +15,14 @@ const RedirectFilter = ({ condition, redirect, routeProps, userRole }) => {
 };
 
 RedirectFilter.defaultProps = {
-	userRole: ''
+	userRole: 0
 };
 
 RedirectFilter.propTypes = {
 	condition: PropTypes.bool.isRequired,
 	redirect: PropTypes.string.isRequired,
 	routeProps: PropTypes.object.isRequired,
-	userRole: PropTypes.string
+	userRole: PropTypes.number
 };
 
 export default RedirectFilter;
