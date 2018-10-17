@@ -13,6 +13,7 @@ import user from './user';
 import bot from './bot';
 import userTest from './userTest';
 import courses from './courses';
+import course from './course';
 
 const createStore = initialState => {
 	const reduxDevTool =
@@ -30,6 +31,7 @@ const createStore = initialState => {
 		userTest,
 		user,
 		courses,
+		course,
 		bot
 	});
 
