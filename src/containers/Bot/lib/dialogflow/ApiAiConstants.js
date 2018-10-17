@@ -1,4 +1,4 @@
-export var ApiAiConstants;
+ export var ApiAiConstants;
 (function (ApiAiConstants) {
     let AVAILABLE_LANGUAGES;
     (function (AVAILABLE_LANGUAGES) {
